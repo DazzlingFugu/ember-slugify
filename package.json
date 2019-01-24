@@ -1,6 +1,6 @@
 {
   "name": "ember-slugify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Library to slugify your strings within Ember.",
   "keywords": [
     "ember-addon",
