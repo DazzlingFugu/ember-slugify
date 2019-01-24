@@ -6,11 +6,12 @@ function removeDiacritics(str) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
-export default function slugify(str) {
+export default function slugify(str, options = {}) {
   return getSlug(
     simplePinyin(removeDiacritics(str.split('_').join('-')), {
       pinyinOnly: false
-    }).join(' ')
+    }).join(' '),
+    options
   )
 }
 
