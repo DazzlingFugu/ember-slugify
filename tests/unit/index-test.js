@@ -17,4 +17,11 @@ module('Unit | Utility | slug', function() {
       'ni-hao-ni-zen-me-yang-monsieur'
     )
   })
+
+  test('tests on slugify with options', (assert) => {
+    assert.equal(
+      slugify('Bon jOuR Töi 1337', { separator: '#' }),
+      'bon#jour#toi#1337'
+    )
+  })
 })
