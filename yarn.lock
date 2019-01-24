@@ -2955,6 +2955,14 @@ ember-assign-polyfill@~2.4.0:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.0.0"
 
+ember-circleci@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ember-circleci/-/ember-circleci-1.2.0.tgz#cb1c3e8d8e04d9e24d86e0662e0145b6f3181c7e"
+  integrity sha512-STdCAMhaeodXHnRrUyXRmeastnAUFQynajjVlq99MPhFA6rbkz+uTReUIO3EnxmYRApw82MhG53aCRPhGDArjA==
+  dependencies:
+    ember-cli-babel "^7.1.2"
+    ember-cli-string-utils "^1.1.0"
+
 ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.12.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
