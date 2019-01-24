@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-env node */
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
@@ -22,4 +24,4 @@ module.exports = {
       ].filter(Boolean)
     }
   }
-};
+}

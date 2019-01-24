@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const getChannelURL = require('ember-source-channel-url');
+const getChannelURL = require('ember-source-channel-url')
 
 module.exports = function() {
   return Promise.all([
@@ -14,7 +14,9 @@ module.exports = function() {
         {
           name: 'ember-lts-2.18',
           env: {
-            EMBER_OPTIONAL_FEATURES: JSON.stringify({ 'jquery-integration': true })
+            EMBER_OPTIONAL_FEATURES: JSON.stringify({
+              'jquery-integration': true
+            })
           },
           npm: {
             devDependencies: {
@@ -79,6 +81,6 @@ module.exports = function() {
           }
         }
       ]
-    };
-  });
-};
+    }
+  })
+}
