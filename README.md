@@ -1,5 +1,6 @@
 ember-slugify
 ==============================================================================
+[![CircleCI](https://circleci.com/gh/peopledoc/ember-slugify.svg?style=shield&circle-token=106b80d7153b94e6ee96541d1647d8e3984862cd)](https://circleci.com/gh/peopledoc/ember-slugify)
 
 [Short description of the addon.]
 
