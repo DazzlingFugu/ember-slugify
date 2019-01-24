@@ -1,4 +1,4 @@
-import slugify, { removeDiacritics } from 'dummy/utils/slug'
+import slugify, { removeDiacritics } from 'dummy'
 import { module, test } from 'qunit'
 
 module('Unit | Utility | slug', function() {

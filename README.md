@@ -18,7 +18,7 @@ ember install ember-slugify
 ## Usage
 
 ```js
-import slugify, { removeDiacritics } from 'ember-slugify/utils/slug'
+import slugify, { removeDiacritics } from 'ember-slugify'
 
 let slug = slugify('你好你怎么样 monsieur') // ni-hao-ni-zen-me-yang-monsieur
 let noDiacritics = removeDiacritics('Théâtre') // Theatre
