@@ -1,11 +1,16 @@
 {
   "name": "ember-slugify",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Library to slugify your strings within Ember.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "slug",
+    "slugify"
   ],
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/peopledoc/ember-slugify.git"
+  },
   "license": "MIT",
   "author": "",
   "directories": {
