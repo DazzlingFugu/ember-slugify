@@ -1,9 +1,10 @@
 import simplePinyin from 'simple-pinyin'
 import getSlug from 'speakingurl'
+import unorm from 'unorm'
 
 function removeDiacritics(str) {
   // eslint-disable-next-line
-  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  return unorm.nfd(str).replace(/[\u0300-\u036f]/g, '')
 }
 
 export default function slugify(str, options = {}) {
