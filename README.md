@@ -31,6 +31,7 @@ let options = { separator: '#' }); // options for speakingurl
 let slug = slugify('你好你怎么样 monsieur', options); // ni#hao#ni#zen#me#yang#monsieur
 
 let noDiacritics = removeDiacritics('Théâtre'); // Theatre
+let slug = slugify('Théâtre'); // theatre
 ```
 
 ## License
