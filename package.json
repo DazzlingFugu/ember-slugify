@@ -56,7 +56,7 @@
     "ember-source": "~3.13.0",
     "ember-source-channel-url": "^2.0.1",
     "ember-try": "^1.2.1",
-    "eslint-config-peopledoc": "^1.5.0",
+    "eslint-config-peopledoc": "^1.7.2",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.9.0"
   },
