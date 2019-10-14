@@ -59,16 +59,6 @@ jobs:
           name: Run Tests
           command: yarn test
 
-  test_lts_2_18:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember LTS 2.18
-          command: ember try:one ember-lts-2.18 --skip-cleanup=true
-
   test_lts_3_4:
     <<: *defaults
     steps:
@@ -131,9 +121,6 @@ workflows:
           requires:
             - install_dependencies
       - test:
-          requires:
-            - install_dependencies
-      - test_lts_2_18:
           requires:
             - install_dependencies
       - test_lts_3_4:

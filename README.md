@@ -9,10 +9,12 @@ This library uses:
 - [speakingurl](https://pid.github.io/speakingurl/)
 - [simple-pinyin](https://github.com/xuqingkuang/simple-pinyin)
 
+
 ## Compatibility
 
-- Ember.js v2.18 or above
-- Ember CLI v2.13 or above
+* Ember.js v3.4 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
 
 ## Installation
 
@@ -41,4 +43,3 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
-
