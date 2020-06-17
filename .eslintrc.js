@@ -1,7 +1,15 @@
-/* eslint-env node */
 module.exports = {
   root: true,
   extends: [
-    'peopledoc/ember'
+    'peopledoc/ember-addon'
+  ],
+
+  overrides: [
+    {
+      files: ['tests/test-helper.js'],
+      rules: {
+        'import/no-relative-parent-imports': 0
+      }
+    }
   ]
 }
