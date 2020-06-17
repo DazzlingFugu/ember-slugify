@@ -3,34 +3,25 @@ defaults: &defaults
     - image: circleci/node:10-browsers
       environment:
         JOBS: 1
-  working_directory: ~/ember-slugify
+  working_directory: ~/project
 
-version: 2
+orbs:
+  node: circleci/node@2.1.1
+version: 2.1
+
 jobs:
-  checkout_code:
+  prepare:
     <<: *defaults
     steps:
       - checkout
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-
-  install_dependencies:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - restore_cache:
-          keys:
-            - ember-slugify-node10-v1-{{ checksum "yarn.lock" }}
+      - node/install-packages:
+          pkg-manager: "yarn"
+          cache-key: "yarn.lock"
+          cache-version: "v1"
+          include-branch-in-cache-key: false
       - run:
-          name: Yarn Install
-          command: yarn install --non-interactive --pure-lockfile
-      - save_cache:
-          key: ember-slugify-node10-v1-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/ember-slugify/node_modules
+          name: Generate reports folder
+          command: mkdir reports
       - persist_to_workspace:
           root: .
           paths:
@@ -41,7 +32,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
       - run:
           name: Lint Handlebars
           command: yarn lint:hbs
@@ -51,90 +41,81 @@ jobs:
 
   test:
     <<: *defaults
+    parameters:
+      scenario:
+        type: enum
+        enum:
+          [
+            "lts-3.12",
+            "lts-3.16",
+            "release",
+            "beta",
+            "canary",
+            "default",
+            "default-with-jquery",
+            "classic",
+          ]
+        default: "default"
     steps:
       - attach_workspace:
           at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
       - run:
-          name: Run Tests
-          command: yarn test
-
-  test_lts_3_4:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember LTS 3.4
-          command: ember try:one ember-lts-3.4 --skip-cleanup=true
-
-  test_release:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember Release
-          command: ember try:one ember-release --skip-cleanup=true
-
-  test_beta:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember Beta
-          command: ember try:one ember-beta --skip-cleanup=true
-
-  test_canary:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember Canary
-          command: ember try:one ember-canary --skip-cleanup=true
-
-  test_default_with_jquery:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run: echo 'export PATH=~/ember-slugify/node_modules/.bin:$PATH' >> $BASH_ENV
-      - run:
-          name: Run Tests Ember Default With jQuery
-          command: ember try:one ember-default-with-jquery --skip-cleanup=true
+          name: Run << parameters.scenario >> Tests
+          command: yarn ember try:one ember-<< parameters.scenario >> --skip-cleanup=true
+      - store_test_results:
+          path: "reports"
+      - store_artifacts:
+          path: "reports"
 
 workflows:
-  version: 2
   test_matrix:
     jobs:
-      - checkout_code
-      - install_dependencies:
-          requires:
-            - checkout_code
+      - prepare
       - lint:
           requires:
-            - install_dependencies
+            - prepare
       - test:
           requires:
-            - install_dependencies
-      - test_lts_3_4:
+            - prepare
+      - test:
+          name: test_lts_3_12
+          scenario: lts-3.12
           requires:
-            - install_dependencies
-      - test_release:
+            - lint
+            - test
+      - test:
+          name: test_lts_3_16
+          scenario: lts-3.16
           requires:
-            - install_dependencies
-      - test_beta:
+            - lint
+            - test
+      - test:
+          name: test_release
+          scenario: release
           requires:
-            - install_dependencies
-      - test_canary:
+            - lint
+            - test
+      - test:
+          name: test_beta
+          scenario: beta
           requires:
-            - install_dependencies
-      - test_default_with_jquery:
+            - lint
+            - test
+      - test:
+          name: test_canary
+          scenario: canary
           requires:
-            - install_dependencies
+            - lint
+            - test
+      - test:
+          name: test_default_with_jquery
+          scenario: "default-with-jquery"
+          requires:
+            - lint
+            - test
+      - test:
+          name: test_classic
+          scenario: classic
+          requires:
+            - lint
+            - test
