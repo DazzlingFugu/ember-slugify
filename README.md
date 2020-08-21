@@ -24,6 +24,8 @@ ember install ember-slugify
 
 ## Usage
 
+### In a `js` file
+
 ```js
 import slugify, { removeDiacritics } from 'ember-slugify';
 
@@ -35,6 +37,15 @@ let slug = slugify('你好你怎么样 monsieur', options); // ni#hao#ni#zen#me#
 let noDiacritics = removeDiacritics('Théâtre'); // Theatre
 let slug = slugify('Théâtre'); // theatre
 ```
+
+### In a template
+
+```hbs
+await render(hbs`{{slugify '你好你怎么样 monsieur'}}`)
+await render(hbs`{{remove-diacritics 'Théâtre'}}`)
+```
+
+The separator option is not available on `slugify` helper.
 
 ## Contributing
 
