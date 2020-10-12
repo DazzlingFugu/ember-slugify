@@ -1,13 +1,13 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.0.1
+
 defaults: &defaults
   docker:
     - image: circleci/node:10-browsers
       environment:
         JOBS: 1
-  working_directory: ~/project
-
-orbs:
-  node: circleci/node@2.1.1
-version: 2.1
 
 jobs:
   prepare:
@@ -16,7 +16,6 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: "yarn"
-          cache-key: "yarn.lock"
           cache-version: "v1"
           include-branch-in-cache-key: false
       - run:
@@ -48,6 +47,7 @@ jobs:
           [
             "lts-3.12",
             "lts-3.16",
+            "lts-3.20",
             "release",
             "beta",
             "canary",
@@ -59,9 +59,21 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run:
-          name: Run << parameters.scenario >> Tests
-          command: yarn ember try:one ember-<< parameters.scenario >> --skip-cleanup=true
+      - when:
+          condition:
+            equal: [ "default", << parameters.scenario >> ]
+          steps:
+            - run:
+                name: Run << parameters.scenario >> Tests
+                command: yarn test:ember
+      - when:
+          condition:
+            not:
+              equal: [ "default", << parameters.scenario >> ]
+          steps:
+            - run:
+                name: Run << parameters.scenario >> Tests
+                command: yarn ember try:one ember-<< parameters.scenario >> --skip-cleanup=true
       - store_test_results:
           path: "reports"
       - store_artifacts:
@@ -86,6 +98,12 @@ workflows:
       - test:
           name: test_lts_3_16
           scenario: lts-3.16
+          requires:
+            - lint
+            - test
+      - test:
+          name: test_lts_3_20
+          scenario: lts-3.20
           requires:
             - lint
             - test

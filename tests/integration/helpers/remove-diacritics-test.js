@@ -8,9 +8,9 @@ module('Integration | Helper | remove-diacritics', function(hooks) {
 
   test('it removes diacritics', async function(assert) {
     await render(hbs`{{remove-diacritics ''}}`)
-    assert.equal(this.element.textContent.trim(), '')
+    assert.dom().hasText('')
     await render(hbs`{{remove-diacritics 'é è à ù ç č Ž ñ'}}`)
-    assert.equal(this.element.textContent.trim(), 'e e a u c c Z n')
+    assert.dom().hasText('e e a u c c Z n')
   })
 
 })

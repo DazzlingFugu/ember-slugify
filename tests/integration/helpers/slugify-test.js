@@ -8,13 +8,13 @@ module('Integration | Helper | slugify', function(hooks) {
 
   test('it slugifies', async function(assert) {
     await render(hbs`{{slugify ''}}`)
-    assert.equal(this.element.textContent.trim(), '')
+    assert.dom().hasText('')
     await render(hbs`{{slugify 'bonjour'}}`)
-    assert.equal(this.element.textContent.trim(), 'bonjour')
+    assert.dom().hasText('bonjour')
     await render(hbs`{{slugify 'annyǒng hashimnikka'}}`)
-    assert.equal(this.element.textContent.trim(), 'annyong-hashimnikka')
+    assert.dom().hasText('annyong-hashimnikka')
     await render(hbs`{{slugify 'Bon jOuR Töi 1337   '}}`)
-    assert.equal(this.element.textContent.trim(), 'bon-jour-toi-1337')
+    assert.dom().hasText('bon-jour-toi-1337')
   })
 
 })
