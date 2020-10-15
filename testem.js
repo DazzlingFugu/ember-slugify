@@ -7,11 +7,9 @@ module.exports = {
   launch_in_ci: [
     'Chrome'
   ],
-
   launch_in_dev: [
     'Chrome'
   ],
-
   browser_start_timeout: 120,
   browser_args: {
     Chrome: {
@@ -26,7 +24,6 @@ module.exports = {
         '--window-size=1440,900'
       ].filter(Boolean)
     },
-
     Firefox: {
       ci: ['-headless', '--window-size=1440,900'].filter(Boolean)
     }

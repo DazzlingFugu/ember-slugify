@@ -4,7 +4,7 @@ import unorm from 'unorm'
 
 function removeDiacritics(str) {
   // eslint-disable-next-line
-  return unorm.nfd(str).replace(/[\u0300-\u036f]/g, '')
+  return unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
 }
 
 export default function slugify(str, options = {}) {

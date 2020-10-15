@@ -25,6 +25,14 @@ module.exports = async function() {
         }
       },
       {
+        name: 'ember-lts-3.20',
+        npm: {
+          devDependencies: {
+            'ember-source': '~3.20.5'
+          }
+        }
+      },
+      {
         name: 'ember-release',
         npm: {
           devDependencies: {
@@ -49,22 +57,15 @@ module.exports = async function() {
         }
       },
       {
-        name: 'ember-default',
-        npm: {
-          devDependencies: {}
-        }
-      },
-      {
         name: 'ember-default-with-jquery',
         env: {
           EMBER_OPTIONAL_FEATURES: JSON.stringify({
             'jquery-integration': true
           })
         },
-
         npm: {
           devDependencies: {
-            '@ember/jquery': '^0.5.1'
+            '@ember/jquery': '^1.1.0'
           }
         }
       },
@@ -77,7 +78,6 @@ module.exports = async function() {
             'template-only-glimmer-components': false
           })
         },
-
         npm: {
           ember: {
             edition: 'classic'
