@@ -1,3 +1,5 @@
+'use strict'
+
 const lint = process.env.CI ? 'nolint' : ''
 const testParams = ['hidepassed', lint].filter(Boolean).join('&')
 

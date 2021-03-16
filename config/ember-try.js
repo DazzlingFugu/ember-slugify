@@ -1,7 +1,7 @@
 'use strict'
 
 const getChannelURL = require('ember-source-channel-url')
-const isCI = !!process.env.CI
+const isCI = Boolean(process.env.CI)
 
 module.exports = async function() {
   return {
