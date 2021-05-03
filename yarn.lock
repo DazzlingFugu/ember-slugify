@@ -5273,7 +5273,7 @@ ember-source@~3.26.1:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-template-lint@^3.2.0:
+ember-template-lint@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-3.3.1.tgz#09825ec320f1491e9f17d40ad12f10340179f844"
   integrity sha512-YONgtnXXhaeNu2kwrHmnqWh2a6aZlVO3aRCLqjGpt0sGwtiXteeT7L7slJdJRtTTxEG/2QdNVFLr4Uef4rIUbw==
