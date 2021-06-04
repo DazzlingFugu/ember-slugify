@@ -1,7 +1,5 @@
 import { helper } from '@ember/component/helper'
-import {
-  removeDiacritics as removeDiacriticsFunction
-} from 'ember-slugify'
+import { removeDiacritics as removeDiacriticsFunction } from 'ember-slugify'
 
 function removeDiacritics(args) {
   let [string] = args

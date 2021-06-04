@@ -10,7 +10,7 @@ function removeDiacritics(str) {
 export default function slugify(str, options = {}) {
   return getSlug(
     simplePinyin(removeDiacritics(str.split('_').join('-')), {
-      pinyinOnly: false
+      pinyinOnly: false,
     }).join(' '),
     options
   )
