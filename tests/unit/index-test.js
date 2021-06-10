@@ -1,7 +1,7 @@
 import slugify, { removeDiacritics } from 'dummy'
 import { module, test } from 'qunit'
 
-module('Unit | Utility | slug', function() {
+module('Unit | Utility | slug', function () {
   test('tests on removeDiacritics', (assert) => {
     assert.equal(removeDiacritics(''), '')
     assert.equal(removeDiacritics('é è à ù ç č Ž ñ'), 'e e a u c c Z n')
