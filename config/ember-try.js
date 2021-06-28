@@ -1,13 +1,9 @@
 'use strict'
 
-const isCI = Boolean(process.env.CI)
 const getChannelURL = require('ember-source-channel-url')
 
 module.exports = async function () {
   return {
-    command: isCI
-      ? 'ember test --silent --reporter xunit > ./reports/test_results.xml'
-      : 'ember test',
     useYarn: true,
     scenarios: [
       {
