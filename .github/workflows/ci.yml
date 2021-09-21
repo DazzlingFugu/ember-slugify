@@ -18,8 +18,6 @@
 #$   - scenario: ember-lts-3.16
 #$   - scenario: ember-lts-3.20
 #$   - scenario: ember-release
-#$   - scenario: ember-beta
-#$   - scenario: ember-canary
 #$   - scenario: ember-default-with-jquery
 #$   - scenario: ember-classic
 #$ nodeVersion: '12'
@@ -46,7 +44,7 @@ jobs:
       with:
         fetch-depth: 1
 
-    - uses: actions/setup-node@v2-beta
+    - uses: actions/setup-node@v2
       with:
         node-version: '${{ env.NODE_VERSION }}'
 
@@ -61,16 +59,12 @@ jobs:
         path: |
           ${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: ${{ runner.os }}-${{ matrix.node-version }}-${{
-          hashFiles('**/yarn.lock'
-          ) }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-
+        key: ${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: yarn lint
@@ -91,7 +85,7 @@ jobs:
       with:
         fetch-depth: 1
 
-    - uses: actions/setup-node@v2-beta
+    - uses: actions/setup-node@v2
       with:
         node-version: '${{ env.NODE_VERSION }}'
 
@@ -106,16 +100,12 @@ jobs:
         path: |
           ${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: ${{ runner.os }}-${{ matrix.node-version }}-${{
-          hashFiles('**/yarn.lock'
-          ) }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-
+        key: ${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch ${{ matrix.browser }}
@@ -136,7 +126,7 @@ jobs:
       with:
         fetch-depth: 1
 
-    - uses: actions/setup-node@v2-beta
+    - uses: actions/setup-node@v2
       with:
         node-version: '${{ env.NODE_VERSION }}'
 
@@ -152,8 +142,7 @@ jobs:
           ${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
         key: ${{ runner.os }}-${{ matrix.node-version }}-floating-deps
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-
+        restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
@@ -171,22 +160,19 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario: [
-          ember-lts-3.16,
-          ember-lts-3.20,
-          ember-release,
-          ember-beta,
-          ember-canary,
-          ember-default-with-jquery,
-          ember-classic
-        ]
+        ember-try-scenario:
+          - ember-lts-3.16
+          - ember-lts-3.20
+          - ember-release
+          - ember-default-with-jquery
+          - ember-classic
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
 
-    - uses: actions/setup-node@v2-beta
+    - uses: actions/setup-node@v2
       with:
         node-version: '${{ env.NODE_VERSION }}'
 
@@ -201,16 +187,12 @@ jobs:
         path: |
           ${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: ${{ runner.os }}-${{ matrix.node-version }}-${{
-          hashFiles('**/yarn.lock'
-          ) }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-
+        key: ${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
