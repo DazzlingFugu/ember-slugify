@@ -18,7 +18,6 @@
 #$   - scenario: ember-lts-3.16
 #$   - scenario: ember-lts-3.20
 #$   - scenario: ember-release
-#$   - scenario: ember-beta
 #$   - scenario: ember-canary
 #$   - scenario: ember-default-with-jquery
 #$   - scenario: ember-classic
@@ -175,7 +174,6 @@ jobs:
           ember-lts-3.16,
           ember-lts-3.20,
           ember-release,
-          ember-beta,
           ember-canary,
           ember-default-with-jquery,
           ember-classic
