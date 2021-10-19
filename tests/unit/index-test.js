@@ -2,12 +2,12 @@ import slugify, { removeDiacritics } from 'dummy'
 import { module, test } from 'qunit'
 
 module('Unit | Utility | slug', function () {
-  test('tests on removeDiacritics', (assert) => {
+  test('tests on removeDiacritics', function (assert) {
     assert.equal(removeDiacritics(''), '')
     assert.equal(removeDiacritics('é è à ù ç č Ž ñ'), 'e e a u c c Z n')
   })
 
-  test('tests on slugify', (assert) => {
+  test('tests on slugify', function (assert) {
     assert.equal(slugify(''), '')
     assert.equal(slugify('bonjour'), 'bonjour')
     assert.equal(slugify('annyǒng hashimnikka'), 'annyong-hashimnikka')
@@ -18,7 +18,7 @@ module('Unit | Utility | slug', function () {
     )
   })
 
-  test('tests on slugify with options', (assert) => {
+  test('tests on slugify with options', function (assert) {
     assert.equal(
       slugify('Bon jOuR Töi 1337', { separator: '#' }),
       'bon#jour#toi#1337'
