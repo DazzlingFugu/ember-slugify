@@ -3,9 +3,16 @@
   "version": "1.3.0",
   "description": "Library to slugify your strings within Ember.",
   "keywords": [
+    "accent",
+    "accents",
+    "diacritics",
+    "ember",
+    "emberjs",
     "ember-addon",
+    "simple-pinyin",
     "slug",
-    "slugify"
+    "slugify",
+    "string"
   ],
   "repository": {
     "type": "git",
