@@ -14,10 +14,7 @@
     "slugify",
     "string"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/peopledoc/ember-slugify.git"
-  },
+  "repository": "https://github.com/peopledoc/ember-slugify",
   "license": "MIT",
   "author": "",
   "directories": {
