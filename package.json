@@ -1,22 +1,27 @@
 {
   "name": "ember-slugify",
-  "version": "1.3.0",
   "description": "Library to slugify your strings within Ember.",
-  "keywords": [
-    "ember-addon",
-    "slug",
-    "slugify"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/peopledoc/ember-slugify.git"
-  },
+  "version": "1.3.0",
   "license": "MIT",
-  "author": "",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
+  "author": {
+    "name": "PeopleDoc",
+    "url": "https://github.com/peopledoc"
   },
+  "homepage": "https://github.com/peopledoc/ember-slugify",
+  "repository": "https://github.com/peopledoc/ember-slugify",
+  "bugs": "https://github.com/peopledoc/ember-slugify/issues",
+  "keywords": [
+    "accent",
+    "accents",
+    "diacritics",
+    "ember",
+    "emberjs",
+    "ember-addon",
+    "simple-pinyin",
+    "slug",
+    "slugify",
+    "string"
+  ],
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
