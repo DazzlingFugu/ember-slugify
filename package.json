@@ -16,6 +16,7 @@
   ],
   "homepage": "https://github.com/peopledoc/ember-slugify",
   "repository": "https://github.com/peopledoc/ember-slugify",
+  "bugs": "https://github.com/peopledoc/ember-slugify/issues",
   "license": "MIT",
   "author": "",
   "directories": {
