@@ -52,6 +52,18 @@ The separator option is not available on `slugify` helper.
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
+## Contributors ✨
+
+[//]: contributor-faces
+<a href="https://github.com/MrChocolatine"><img src="https://avatars.githubusercontent.com/u/47531779?v=4" title="MrChocolatine" width="80" height="80"></a>
+<a href="https://github.com/GreatWizard"><img src="https://avatars.githubusercontent.com/u/1322081?v=4" title="GreatWizard" width="80" height="80"></a>
+<a href="https://github.com/BlueCutOfficial"><img src="https://avatars.githubusercontent.com/u/22059380?v=4" title="BlueCutOfficial" width="80" height="80"></a>
+<a href="https://github.com/saintsebastian"><img src="https://avatars.githubusercontent.com/u/8288415?v=4" title="saintsebastian" width="80" height="80"></a>
+<a href="https://github.com/mathieupoteriepeopledoc"><img src="https://avatars.githubusercontent.com/u/40787872?v=4" title="mathieupoteriepeopledoc" width="80" height="80"></a>
+<a href="https://github.com/xcambar"><img src="https://avatars.githubusercontent.com/u/657654?v=4" title="xcambar" width="80" height="80"></a>
+
+[//]: contributor-faces
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
