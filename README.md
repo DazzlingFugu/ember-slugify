@@ -55,6 +55,51 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ## Contributors
 
 <!-- readme: contributors,ember-tomster/- -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/MrChocolatine">
+            <img src="https://avatars.githubusercontent.com/u/47531779?v=4" width="100;" alt="MrChocolatine"/>
+            <br />
+            <sub><b>MrChocolatine</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/GreatWizard">
+            <img src="https://avatars.githubusercontent.com/u/1322081?v=4" width="100;" alt="GreatWizard"/>
+            <br />
+            <sub><b>GreatWizard</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/BlueCutOfficial">
+            <img src="https://avatars.githubusercontent.com/u/22059380?v=4" width="100;" alt="BlueCutOfficial"/>
+            <br />
+            <sub><b>BlueCutOfficial</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/saintsebastian">
+            <img src="https://avatars.githubusercontent.com/u/8288415?v=4" width="100;" alt="saintsebastian"/>
+            <br />
+            <sub><b>saintsebastian</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mathieupoteriepeopledoc">
+            <img src="https://avatars.githubusercontent.com/u/40787872?v=4" width="100;" alt="mathieupoteriepeopledoc"/>
+            <br />
+            <sub><b>mathieupoteriepeopledoc</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/xcambar">
+            <img src="https://avatars.githubusercontent.com/u/657654?v=4" width="100;" alt="xcambar"/>
+            <br />
+            <sub><b>xcambar</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors,ember-tomster/- -end -->
 
 ## License
