@@ -22,6 +22,12 @@
     "slugify",
     "string"
   ],
+  "files": [
+    "/addon",
+    "/app",
+    "/config/environment.js",
+    "/index.js"
+  ],
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
