@@ -26,6 +26,9 @@ module.exports = async function () {
       {
         name: 'ember-release',
         npm: {
+          dependencies: {
+            'ember-auto-import': '^2.0.0',
+          },
           devDependencies: {
             'ember-source': await getChannelURL('release'),
           },
