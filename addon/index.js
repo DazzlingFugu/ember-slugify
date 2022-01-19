@@ -1,18 +1,70 @@
+import * as slugfyFunction from 'slugify'
 import simplePinyin from 'simple-pinyin'
-import getSlug from 'speakingurl'
-import unorm from 'unorm'
+import emoji from 'emoji.json'
 
-function removeDiacritics(str) {
-  // eslint-disable-next-line
-  return unorm.nfd(str).replace(/[\u0300-\u036f]/g, '')
+const UNWANTED_OPTIONS = [
+  'strict', // strip special characters except replacement (boolean)
+]
+
+function removeDiacritics(str = '') {
+  return str.normalize('NFKD').replace(/[\u0300-\u036F]/g, '')
 }
 
-export default function slugify(str, options = {}) {
-  return getSlug(
-    simplePinyin(removeDiacritics(str.split('_').join('-')), {
+function _parseLocale(_locale) {
+  if (_locale && typeof _locale === 'string') {
+    if (_locale.includes('-')) {
+      return _locale.split('-')[0]
+    }
+    if (_locale.includes('_')) {
+      return _locale.split('_')[0]
+    }
+  }
+  return _locale
+}
+
+export default function slugify(str = '', options = {}) {
+  UNWANTED_OPTIONS.forEach((key) => {
+    if (options[key] !== undefined) {
+      delete options[key]
+    }
+  })
+  let locale = _parseLocale(options.locale)
+  if (locale && typeof locale === 'string') {
+    if (locale.includes('-')) {
+      locale = locale.split('-')[0]
+    }
+    if (locale.includes('_')) {
+      locale = locale.split('_')[0]
+    }
+  }
+  let result = removeDiacritics(str)
+  if (options.pinyin) {
+    result = simplePinyin(result, {
       matchFullText: 'original',
-    }).reduce((acc, b) => (b.length === 1 ? `${acc}${b}` : `${acc} ${b}`), ''),
-    options
+    }).reduce((acc, b) => (b.length === 1 ? `${acc}${b}` : `${acc} ${b}`), '')
+  }
+  if (options.emoji) {
+    emoji.forEach((emoji) => {
+      result = result.replaceAll(emoji.char, ` ${emoji.name} `)
+    })
+  }
+  return slugfyFunction(
+    result,
+    Object.assign(
+      {
+        replacement: '-',
+        lower: true,
+        strict: true,
+        locale: undefined,
+        trim: true,
+        pinyin: false,
+        emoji: false,
+      },
+      options,
+      {
+        locale,
+      }
+    )
   )
 }
 
