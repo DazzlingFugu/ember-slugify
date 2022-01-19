@@ -45,9 +45,9 @@
     "ember-auto-import": "^1.11.3",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^6.0.0",
+    "emoji.json": "^13.1.0",
     "simple-pinyin": "^4.0.0",
-    "speakingurl": "^14.0.1",
-    "unorm": "^1.6.0"
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",

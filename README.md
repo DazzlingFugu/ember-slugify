@@ -7,15 +7,15 @@ Library to slugify your strings within Ember.
 
 This library uses:
 
-- [speakingurl](https://pid.github.io/speakingurl/)
+- [slugify](https://github.com/simov/slugify)
 - [simple-pinyin](https://github.com/xuqingkuang/simple-pinyin)
-
+- [emoji.json](https://github.com/amio/emoji.json)
 
 ## Compatibility
 
-* Ember.js v3.20 or above
-* Ember CLI v3.20 or above
-* Node.js v12 or above
+- Ember.js v3.20 or above
+- Ember CLI v3.20 or above
+- Node.js v12 or above
 
 ## Installation
 
@@ -28,25 +28,54 @@ ember install ember-slugify
 ### In a `js` file
 
 ```js
-import slugify, { removeDiacritics } from 'ember-slugify';
+import slugify, { removeDiacritics } from 'ember-slugify'
 
-let slug = slugify('你好你怎么样 monsieur'); // ni-hao-ni-zen-me-yang-monsieur
+let slug = slugify('Le Théâtre')
+// le-theatre
 
-let options = { separator: '#' }); // options for speakingurl
-let slug = slugify('你好你怎么样 monsieur', options); // ni#hao#ni#zen#me#yang#monsieur
+slug = slugify('I ♥ New York')
+// i-love-new-york
 
-let noDiacritics = removeDiacritics('Théâtre'); // Theatre
-let slug = slugify('Théâtre'); // theatre
+slug = slugify("Vive l'♥", { locale: 'fr' })
+// vive-lamour
+
+slug = slugify('bonjour monsieur', { replacement: '#' })
+// bonjour#monsieur
+
+slug = slugify('你好你怎么样 monsieur', { pinyin: true })
+// ni-hao-ni-zen-me-yang-monsieur
+
+slug = slugify('🇫🇷❤️🥖➕🍷', { emoji: true })
+// flag-france-red-heart-baguette-bread-plus-wine-glass
+
+let noDiacritics = removeDiacritics('Le Théâtre')
+// Le Theatre
 ```
 
 ### In a template
 
 ```hbs
-await render(hbs`{{slugify '你好你怎么样 monsieur'}}`)
-await render(hbs`{{remove-diacritics 'Théâtre'}}`)
+{{slugify 'Le Théâtre'}}
+
+{{slugify '你好你怎么样 monsieur' (hash pinyin=true)}}
+
+{{slugify '🇫🇷❤️🥖➕🍷' (hash emoji=true)}}
+
+{{remove-diacritics 'Le Théâtre'}}
 ```
 
 The separator option is not available on `slugify` helper.
+
+### Options
+
+| name        | description                                                    | default value |
+| ----------- | -------------------------------------------------------------- | ------------- |
+| replacement | replace spaces with replacement character                      | `'-'`         |
+| lower       | convert to lower case                                          | `true`        |
+| locale      | language code of the locale to use                             | `undefined`   |
+| trim        | trim leading and trailing replacement chars                    | `true`        |
+| pinyin      | replace chinese by latin character following the pinyin method | `false`       |
+| emoji       | replace unicode emoji by it's description                      | `false`       |
 
 ## Contributing
 

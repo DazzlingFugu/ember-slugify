@@ -1,5 +1,30 @@
-{{page-title "Dummy"}}
+{{page-title "ember-slugify"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Welcome to ember-slugify</h2>
+
+<div class="block">
+  <p class="code">\{{slugify "Le Théâtre"}}</p>
+  <p>{{slugify "Le Théâtre"}}</p>
+</div>
+
+<div class="block">
+  <p class="code">\{{slugify "I ♥ New York"}}</p>
+  <p>{{slugify "I ♥ New York"}}</p>
+</div>
+
+<div class="block">
+  <p class="code">\{{slugify "你好你怎么样 monsieur" (hash pinyin=true)}}</p>
+  <p>{{slugify "你好你怎么样 monsieur" (hash pinyin=true)}}</p>
+</div>
+
+<div class="block">
+  <p class="code">\{{slugify "🇫🇷❤️🥖➕🍷" (hash emoji=true)}}</p>
+  <p>{{slugify "🇫🇷❤️🥖➕🍷" (hash emoji=true)}}</p>
+</div>
+
+<div class="block">
+  <p class="code">\{{remove-diacritics "Le Théâtre"}}</p>
+  <p>{{remove-diacritics "Le Théâtre"}}</p>
+</div>
 
 {{outlet}}
