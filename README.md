@@ -1,7 +1,6 @@
 # ember-slugify
 
-[![CI](https://github.com/peopledoc/ember-slugify/actions/workflows/ci.yml/badge.svg)](https://github.com/peopledoc/ember-slugify/actions/workflows/ci.yml) [![Ember Observer Score](https://emberobserver.com/badges/ember-slugify.svg)](https://emberobserver.com/addons/ember-slugify)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/DazzlingFugu/ember-slugify/actions/workflows/ci.yml/badge.svg)](https://github.com/DazzlingFugu/ember-slugify/actions/workflows/ci.yml) [![Ember Observer Score](https://emberobserver.com/badges/ember-slugify.svg)](https://emberobserver.com/addons/ember-slugify) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Library to slugify your strings within Ember.
 

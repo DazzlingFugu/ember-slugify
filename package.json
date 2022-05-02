@@ -4,12 +4,12 @@
   "version": "3.0.0",
   "license": "MIT",
   "author": {
-    "name": "PeopleDoc",
-    "url": "https://github.com/peopledoc"
+    "name": "Dazzling Fugu",
+    "url": "https://github.com/DazzlingFugu"
   },
-  "homepage": "https://github.com/peopledoc/ember-slugify",
-  "repository": "https://github.com/peopledoc/ember-slugify",
-  "bugs": "https://github.com/peopledoc/ember-slugify/issues",
+  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
+  "repository": "https://github.com/DazzlingFugu/ember-slugify",
+  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
   "keywords": [
     "accent",
     "accents",
