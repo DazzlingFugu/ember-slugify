@@ -29,14 +29,6 @@ export default function slugify(str = '', options = {}) {
     }
   })
   let locale = _parseLocale(options.locale)
-  if (locale && typeof locale === 'string') {
-    if (locale.includes('-')) {
-      locale = locale.split('-')[0]
-    }
-    if (locale.includes('_')) {
-      locale = locale.split('_')[0]
-    }
-  }
   let result = removeDiacritics(str)
   if (options.pinyin) {
     result = simplePinyin(result, {
