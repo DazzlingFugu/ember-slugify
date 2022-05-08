@@ -10,16 +10,20 @@ function removeDiacritics(str = '') {
   return str.normalize('NFKD').replace(/[\u0300-\u036F]/g, '')
 }
 
-function _parseLocale(_locale) {
-  if (_locale && typeof _locale === 'string') {
-    if (_locale.includes('-')) {
-      return _locale.split('-')[0]
-    }
-    if (_locale.includes('_')) {
-      return _locale.split('_')[0]
-    }
+function _parseLocale(locale) {
+  if (typeof locale !== 'string') {
+    return
   }
-  return _locale
+
+  if (locale.includes('-')) {
+    return locale.split('-')[0]
+  }
+
+  if (locale.includes('_')) {
+    return locale.split('_')[0]
+  }
+
+  return locale
 }
 
 export default function slugify(str = '', options = {}) {
