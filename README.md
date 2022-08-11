@@ -8,7 +8,7 @@ This library uses:
 
 - [slugify](https://github.com/simov/slugify)
 - [simple-pinyin](https://github.com/xuqingkuang/simple-pinyin)
-- # [emoji.json](https://github.com/amio/emoji.json)
+- [emoji.json](https://github.com/amio/emoji.json)
 
 ## Compatibility
 
