@@ -100,17 +100,17 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/saintsebastian">
-            <img src="https://avatars.githubusercontent.com/u/8288415?v=4" width="100;" alt="saintsebastian"/>
-            <br />
-            <sub><b>saintsebastian</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/BlueCutOfficial">
             <img src="https://avatars.githubusercontent.com/u/22059380?v=4" width="100;" alt="BlueCutOfficial"/>
             <br />
             <sub><b>BlueCutOfficial</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/saintsebastian">
+            <img src="https://avatars.githubusercontent.com/u/8288415?v=4" width="100;" alt="saintsebastian"/>
+            <br />
+            <sub><b>saintsebastian</b></sub>
         </a>
     </td>
     <td align="center">
