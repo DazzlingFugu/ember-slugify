@@ -30,6 +30,12 @@ module.exports = {
 
   overrides: [
     {
+      files: ['**/tests/**/*.{js,ts}'],
+      rules: {
+        'eol-last': 'off',
+      },
+    },
+    {
       files: ['**/tests/dummy/**/*.hbs', '**/tests/**/*.{js,ts}'],
       rules: {
         'no-bare-strings': 'off',
