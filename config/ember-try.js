@@ -33,6 +33,9 @@ module.exports = async function () {
       },
       {
         name: 'ember-canary',
+        // Can be mandatory again when ember-qunit will be compatible Ember 5
+        // https://github.com/emberjs/ember-qunit/issues/1026
+        allowedToFail: true,
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
