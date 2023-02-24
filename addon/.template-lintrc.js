@@ -27,26 +27,4 @@ module.exports = {
 
     'require-form-method': 'warn',
   },
-
-  overrides: [
-    {
-      files: ['**/tests/**/*.{js,ts}'],
-      rules: {
-        'eol-last': 'off',
-      },
-    },
-    {
-      files: ['**/tests/dummy/**/*.hbs', '**/tests/**/*.{js,ts}'],
-      rules: {
-        'no-bare-strings': 'off',
-      },
-    },
-    {
-      files: ['**/tests/dummy/app/templates/**/*.hbs'],
-
-      rules: {
-        'no-this-in-template-only-components': 'off',
-      },
-    },
-  ],
 }

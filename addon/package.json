@@ -1,0 +1,66 @@
+{
+  "name": "ember-slugify",
+  "description": "Library to slugify your strings within Ember.",
+  "version": "4.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Dazzling Fugu",
+    "url": "https://github.com/DazzlingFugu"
+  },
+  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
+  "repository": "https://github.com/DazzlingFugu/ember-slugify",
+  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
+  "keywords": [
+    "accent",
+    "accents",
+    "diacritics",
+    "ember",
+    "emberjs",
+    "ember-addon",
+    "simple-pinyin",
+    "slug",
+    "slugify",
+    "string"
+  ],
+  "files": [
+    "/addon",
+    "/app",
+    "/config/environment.js",
+    "/index.js"
+  ],
+  "scripts": {
+    "lint": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:*:fix\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "ember-auto-import": "^2.4.3",
+    "ember-cli-babel": "^7.26.11",
+    "ember-cli-htmlbars": "^6.1.1",
+    "emoji.json": "^13.1.0",
+    "simple-pinyin": "^4.0.0",
+    "slugify": "^1.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-ember": "^11.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-qunit": "^7.3.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1"
+  },
+  "resolutions": {
+    "clean-css": "4.2.1"
+  },
+  "engines": {
+    "node": "14.* || 16.* || >= 18"
+  },
+  "ember": {
+    "edition": "octane"
+  }
+}
