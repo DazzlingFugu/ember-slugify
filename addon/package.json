@@ -72,7 +72,10 @@
     "main": "addon-main.js",
     "type": "addon",
     "version": 2,
-    "app-js": {}
+    "app-js": {
+      "./helpers/remove-diacritics.js": "./dist/_app_/helpers/remove-diacritics.js",
+      "./helpers/slugify.js": "./dist/_app_/helpers/slugify.js"
+    }
   },
   "exports": {
     ".": "./dist/index.js",
