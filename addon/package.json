@@ -59,9 +59,6 @@
     "prettier": "^2.7.1",
     "rollup": "^3.17.3"
   },
-  "resolutions": {
-    "clean-css": "4.2.1"
-  },
   "engines": {
     "node": "14.* || 16.* || >= 18"
   },

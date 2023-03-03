@@ -1,4 +1,4 @@
-import slugify, { removeDiacritics } from 'test-app'
+import slugify, { removeDiacritics } from 'ember-slugify'
 import { module, test } from 'qunit'
 
 module('Unit | Utility | slug', function () {

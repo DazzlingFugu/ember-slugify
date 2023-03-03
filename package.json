@@ -1,4 +1,7 @@
 {
   "private": true,
-  "workspaces": ["addon", "test-app"]
+  "workspaces": ["addon", "test-app"],
+  "resolutions": {
+    "clean-css": "4.2.1"
+  }
 }
