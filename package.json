@@ -1,7 +1,15 @@
 {
   "private": true,
-  "workspaces": ["addon", "test-app"],
+  "workspaces": ["ember-slugify", "test-app"],
   "resolutions": {
     "clean-css": "4.2.1"
+  },
+  "scripts": {
+    "build": "yarn workspace ember-slugify run build",
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "start:addon": "yarn workspace ember-slugify run start",
+    "start:test-app": "yarn workspace test-app run start",
+    "test": "yarn workspace test-app test"
   }
 }
