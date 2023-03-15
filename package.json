@@ -10,6 +10,6 @@
     "lint:fix": "yarn workspaces run lint:fix",
     "start:addon": "yarn workspace ember-slugify run start",
     "start:test-app": "yarn workspace test-app run start",
-    "test": "yarn workspace test-app test"
+    "test:ember": "yarn workspace test-app test:ember"
   }
 }
