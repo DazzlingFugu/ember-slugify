@@ -63,6 +63,9 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Build Addon
+        run: yarn build
+
       - name: Run Tests
         run: yarn test:ember
         working-directory: test-app
@@ -96,6 +99,9 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Build Addon
+        run: yarn build
 
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
