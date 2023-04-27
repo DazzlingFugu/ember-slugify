@@ -1,4 +1,4 @@
-import * as slugfyFunction from 'slugify'
+import slugify from 'slugify'
 import simplePinyin from 'simple-pinyin'
 import emoji from 'emoji.json'
 
@@ -26,7 +26,7 @@ function _parseLocale(locale) {
   return locale
 }
 
-export default function slugify(str = '', options = {}) {
+export default function slugifyFunction(str = '', options = {}) {
   UNWANTED_OPTIONS.forEach((key) => {
     if (options[key] !== undefined) {
       delete options[key]
@@ -44,7 +44,7 @@ export default function slugify(str = '', options = {}) {
       result = result.replaceAll(emoji.char, ` ${emoji.name} `)
     })
   }
-  return slugfyFunction(
+  return slugify(
     result,
     Object.assign(
       {
@@ -64,4 +64,4 @@ export default function slugify(str = '', options = {}) {
   )
 }
 
-export { removeDiacritics, slugify }
+export { removeDiacritics, slugifyFunction as slugify }
