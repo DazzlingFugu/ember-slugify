@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.4",
-    "emoji.json": "^13.1.0",
+    "emoji.json": "^14.0.0",
     "simple-pinyin": "^4.0.0",
     "slugify": "^1.6.5"
   },
