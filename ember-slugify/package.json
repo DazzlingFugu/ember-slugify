@@ -50,7 +50,7 @@
     "@embroider/addon-dev": "^3.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "eslint": "^8.16.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-ember": "^11.1.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
