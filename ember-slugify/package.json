@@ -1,7 +1,7 @@
 {
   "name": "ember-slugify",
   "description": "Library to slugify your strings within Ember.",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "license": "MIT",
   "author": {
     "name": "Dazzling Fugu",

@@ -1,7 +1,7 @@
 {
   "name": "test-app",
   "description": "Library to slugify your strings within Ember.",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "license": "MIT",
   "author": {
     "name": "Dazzling Fugu",
@@ -62,7 +62,7 @@
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^6.0.0",
     "ember-resolver": "^9.0.1",
-    "ember-slugify": "4.0.0",
+    "ember-slugify": "5.0.0",
     "ember-source": "~4.8.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.0.1",

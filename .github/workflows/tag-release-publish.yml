@@ -1,81 +1,81 @@
 # GitHub Actions documentation:
 # https://docs.github.com/en/actions
 
-name: Create new tag, create new GitHub release and publish to NPM
+# name: Create new tag, create new GitHub release and publish to NPM
 
-on:
-  workflow_run:
-    workflows:
-      - CI
-    branches:
-      - master
-    types:
-      - completed
+# on:
+#   workflow_run:
+#     workflows:
+#       - CI
+#     branches:
+#       - master
+#     types:
+#       - completed
 
-concurrency:
-  group: tag-release-publish-${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: tag-release-publish-${{ github.ref }}
+#   cancel-in-progress: true
 
-jobs:
-  create_git_tag:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Create new tag
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    outputs:
-      new_tag: ${{ steps.detect_then_tag.outputs.tag }}
-      new_version: ${{ steps.detect_then_tag.outputs.current-version }}
-      old_version: ${{ steps.detect_then_tag.outputs.previous-version }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
+# jobs:
+#   create_git_tag:
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     name: Create new tag
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 20
+#     outputs:
+#       new_tag: ${{ steps.detect_then_tag.outputs.tag }}
+#       new_version: ${{ steps.detect_then_tag.outputs.current-version }}
+#       old_version: ${{ steps.detect_then_tag.outputs.previous-version }}
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 2
 
-      - name: Detect and tag new version
-        id: detect_then_tag
-        uses: salsify/action-detect-and-tag-new-version@v2
+#       - name: Detect and tag new version
+#         id: detect_then_tag
+#         uses: salsify/action-detect-and-tag-new-version@v2
 
-  create_github_release:
-    if: ${{ needs.create_git_tag.outputs.new_tag }}
-    name: Create new GitHub release
-    needs: create_git_tag
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: ncipollo/release-action@v1
-        with:
-          body: "\
-            Changelog: \
-            ${{ github.server_url }}/${{ github.repository }}\
-            /compare/\
-            v${{ needs.create_git_tag.outputs.old_version }}...v${{ needs.create_git_tag.outputs.new_version }}\
-            "
-          name: Release ${{ needs.create_git_tag.outputs.new_tag }}
-          tag: ${{ needs.create_git_tag.outputs.new_tag }}
+#   create_github_release:
+#     if: ${{ needs.create_git_tag.outputs.new_tag }}
+#     name: Create new GitHub release
+#     needs: create_git_tag
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 20
+#     steps:
+#       - uses: ncipollo/release-action@v1
+#         with:
+#           body: "\
+#             Changelog: \
+#             ${{ github.server_url }}/${{ github.repository }}\
+#             /compare/\
+#             v${{ needs.create_git_tag.outputs.old_version }}...v${{ needs.create_git_tag.outputs.new_version }}\
+#             "
+#           name: Release ${{ needs.create_git_tag.outputs.new_tag }}
+#           tag: ${{ needs.create_git_tag.outputs.new_tag }}
 
-  publish_npm:
-    name: Publish to NPM
-    needs: create_github_release
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#   publish_npm:
+#     name: Publish to NPM
+#     needs: create_github_release
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 20
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          node-version: 16
-          registry-url: https://registry.npmjs.org
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           cache: 'yarn'
+#           node-version: 16
+#           registry-url: https://registry.npmjs.org
 
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-        working-directory: ember-slugify
+#       - name: Install Dependencies
+#         run: yarn install --frozen-lockfile
+#         working-directory: ember-slugify
 
-      - name: Publish to NPM
-        run: npm publish
-        working-directory: ember-slugify
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+#       - name: Publish to NPM
+#         run: npm publish
+#         working-directory: ember-slugify
+#         env:
+#           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
