@@ -41,7 +41,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
+    "@babel/core": "^7.22.1",
     "@babel/eslint-parser": "^7.21.3",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.8.1",
