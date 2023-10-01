@@ -3,14 +3,7 @@
 
 name: Create new tag, create new GitHub release and publish to NPM
 
-on:
-  workflow_run:
-    workflows:
-      - CI
-    branches:
-      - master
-    types:
-      - completed
+on: workflow_dispatch
 
 concurrency:
   group: tag-release-publish-${{ github.ref }}
