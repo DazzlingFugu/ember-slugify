@@ -71,7 +71,14 @@ module.exports = async function () {
           },
         },
       },
-      embroiderSafe(),
+      {
+        ...embroiderSafe(),
+        npm: {
+          devDependencies: {
+            '@ember/string': '^3.1.1',
+          },
+        },
+      },
       embroiderOptimized(),
     ],
   }
