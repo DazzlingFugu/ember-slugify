@@ -6,7 +6,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
-  plugins: ['ember', '@typescript-eslint'],
+  plugins: ['ember'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -15,43 +15,36 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {
-    semi: ['error', 'never'],
-  },
+  rules: {},
   overrides: [
     // ts files
     {
-      files: ['**/*.ts'],
+      files: ['**/*.ts', '**/*.gts'],
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
       ],
-      rules: {},
+      rules: {
+        // Add any custom rules here
+      },
     },
     // node files
     {
       files: [
-        './.eslintrc.js',
-        './.prettierrc.js',
-        './.stylelintrc.js',
-        './.template-lintrc.js',
-        './ember-cli-build.js',
-        './testem.js',
-        './blueprints/*/index.js',
-        './config/**/*.js',
-        './lib/*/index.js',
-        './server/**/*.js',
+        './.eslintrc.cjs',
+        './.prettierrc.cjs',
+        './.template-lintrc.cjs',
+        './addon-main.cjs',
       ],
+      parserOptions: {
+        sourceType: 'script',
+      },
       env: {
         browser: false,
         node: true,
       },
+      plugins: ['n'],
       extends: ['plugin:n/recommended'],
-    },
-    {
-      // test files
-      files: ['tests/**/*-test.{js,ts}'],
-      extends: ['plugin:qunit/recommended'],
     },
   ],
 };

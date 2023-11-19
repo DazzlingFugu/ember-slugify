@@ -1,15 +1,7 @@
 {
   "name": "ember-slugify",
-  "description": "Library to slugify your strings within Ember.",
   "version": "5.0.0",
-  "license": "MIT",
-  "author": {
-    "name": "Dazzling Fugu",
-    "url": "https://github.com/DazzlingFugu"
-  },
-  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
-  "repository": "https://github.com/DazzlingFugu/ember-slugify",
-  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
+  "description": "Library to slugify your strings within Ember.",
   "keywords": [
     "accent",
     "accents",
@@ -22,24 +14,57 @@
     "slugify",
     "string"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "Dazzling Fugu",
+    "url": "https://github.com/DazzlingFugu"
+  },
+  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
+  "repository": "https://github.com/DazzlingFugu/ember-slugify",
+  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
   "files": [
-    "addon-main.js",
+    "addon-main.cjs",
+    "declarations",
     "dist"
   ],
   "scripts": {
-    "lint": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:*:fix\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
+    "build": "concurrently 'npm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "build": "rollup --config",
-    "prepublishOnly": "rollup --config",
-    "start": "rollup --config --watch"
+    "lint:types": "glint",
+    "prepack": "rollup --config",
+    "start": "concurrently 'npm:start:*'",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.4",
-    "emoji.json": "^15.0.0",
+    "emoji.json": "^15.1.0",
     "simple-pinyin": "^4.0.0",
     "slugify": "^1.6.6"
   },
@@ -47,37 +72,66 @@
     "@babel/core": "^7.22.5",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.23.2",
-    "@embroider/addon-dev": "^3.0.0",
+    "@babel/plugin-transform-class-static-block": "^7.20.0",
+    "@babel/plugin-transform-typescript": "^7.22.15",
+    "@babel/runtime": "^7.17.0",
+    "@embroider/addon-dev": "^4.1.0",
+    "@glint/core": "^1.2.0",
+    "@glint/environment-ember-loose": "^1.2.0",
+    "@glint/environment-ember-template-imports": "^1.2.0",
+    "@glint/template": "^1.2.0",
     "@rollup/plugin-babel": "^6.0.3",
-    "eslint": "^8.16.0",
-    "eslint-config-prettier": "^8.8.0",
+    "@tsconfig/ember": "^2.0.0",
+    "@types/ember": "^4.0.4",
+    "@types/ember__application": "^4.0.6",
+    "@types/ember__array": "^4.0.4",
+    "@types/ember__component": "^4.0.14",
+    "@types/ember__controller": "^4.0.5",
+    "@types/ember__debug": "^4.0.4",
+    "@types/ember__engine": "^4.0.5",
+    "@types/ember__error": "^4.0.3",
+    "@types/ember__helper": "^4.0.3",
+    "@types/ember__modifier": "^4.0.6",
+    "@types/ember__object": "^4.0.6",
+    "@types/ember__owner": "^4.0.4",
+    "@types/ember__polyfills": "^4.0.2",
+    "@types/ember__routing": "^4.0.13",
+    "@types/ember__runloop": "^4.0.3",
+    "@types/ember__service": "^4.0.3",
+    "@types/ember__string": "^3.16.3",
+    "@types/ember__template": "^4.0.2",
+    "@types/ember__test": "^4.0.2",
+    "@types/ember__utils": "^4.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "babel-plugin-ember-template-compilation": "^2.2.0",
+    "concurrently": "^8.0.1",
+    "ember-template-lint": "^5.11.2",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-ember": "^11.11.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-qunit": "^7.3.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "rollup": "^3.17.3"
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "rollup": "^3.21.8",
+    "rollup-plugin-copy": "^3.4.0",
+    "typescript": "^5.0.4"
   },
-  "engines": {
-    "node": "14.* || 16.* || >= 18"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
-    "main": "addon-main.js",
-    "type": "addon",
     "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
     "app-js": {
       "./helpers/remove-diacritics.js": "./dist/_app_/helpers/remove-diacritics.js",
       "./helpers/slugify.js": "./dist/_app_/helpers/slugify.js"
     }
-  },
-  "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*",
-    "./test-support": "./dist/test-support/index.js",
-    "./addon-main.js": "./addon-main.js"
   }
 }
