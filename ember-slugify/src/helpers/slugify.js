@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper'
-import { slugify } from '../index'
+import { slugify } from 'ember-slugify'
 
 const AVAILABLE_OPTIONS = [
   'replacement', // replace spaces with replacement character (string)
