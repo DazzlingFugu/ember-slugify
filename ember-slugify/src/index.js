@@ -1,4 +1,4 @@
-import slugify from 'slugify'
+import baseSlugify from 'slugify'
 import simplePinyin from 'simple-pinyin'
 import emoji from 'emoji.json'
 
@@ -6,7 +6,7 @@ const UNWANTED_OPTIONS = [
   'strict', // strip special characters except replacement (boolean)
 ]
 
-function removeDiacritics(str = '') {
+export function removeDiacritics(str = '') {
   return str.normalize('NFKD').replace(/[\u0300-\u036F]/g, '')
 }
 
@@ -26,7 +26,7 @@ function _parseLocale(locale) {
   return locale
 }
 
-export default function slugifyFunction(str = '', options = {}) {
+export function slugify(str = '', options = {}) {
   UNWANTED_OPTIONS.forEach((key) => {
     if (options[key] !== undefined) {
       delete options[key]
@@ -44,7 +44,7 @@ export default function slugifyFunction(str = '', options = {}) {
       result = result.replaceAll(emoji.char, ` ${emoji.name} `)
     })
   }
-  return slugify(
+  return baseSlugify(
     result,
     Object.assign(
       {
@@ -64,4 +64,4 @@ export default function slugifyFunction(str = '', options = {}) {
   )
 }
 
-export { removeDiacritics, slugifyFunction as slugify }
+export default slugify

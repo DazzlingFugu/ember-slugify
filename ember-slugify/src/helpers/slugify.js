@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper'
-import { slugify as slugifyFunction } from '../index'
+import { slugify } from '../index'
 
 const AVAILABLE_OPTIONS = [
   'replacement', // replace spaces with replacement character (string)
@@ -11,7 +11,7 @@ const AVAILABLE_OPTIONS = [
   'emoji', // replace unicode emoji by it's description (boolean)
 ]
 
-function slugify(args) {
+function slugifyHelper(args) {
   let [string, options] = args
   let opts = {}
   if (options) {
@@ -21,7 +21,7 @@ function slugify(args) {
       }
     })
   }
-  return slugifyFunction(string, opts)
+  return slugify(string, opts)
 }
 
-export default helper(slugify)
+export default helper(slugifyHelper)
