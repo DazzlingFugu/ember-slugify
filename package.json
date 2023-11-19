@@ -30,8 +30,5 @@
   "workspaces": [
     "ember-slugify",
     "test-app"
-  ],
-  "resolutions": {
-    "clean-css": "4.2.1"
-  }
+  ]
 }
