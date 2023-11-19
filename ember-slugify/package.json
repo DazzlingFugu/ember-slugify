@@ -20,7 +20,10 @@
     "url": "https://github.com/DazzlingFugu"
   },
   "homepage": "https://github.com/DazzlingFugu/ember-slugify",
-  "repository": "https://github.com/DazzlingFugu/ember-slugify",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DazzlingFugu/ember-slugify.git"
+  },
   "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
   "exports": {
     ".": {
