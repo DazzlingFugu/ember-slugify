@@ -59,8 +59,8 @@ export default function slugifyFunction(str = '', options = {}) {
       options,
       {
         locale,
-      }
-    )
+      },
+    ),
   )
 }
 

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
@@ -23,4 +23,4 @@ module.exports = {
       ci: ['-headless', '--window-size=1440,900'].filter(Boolean),
     },
   },
-};
+}

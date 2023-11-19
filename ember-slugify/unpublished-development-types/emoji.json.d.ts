@@ -1,1 +1,1 @@
-declare module 'emoji.json';
+declare module 'emoji.json'

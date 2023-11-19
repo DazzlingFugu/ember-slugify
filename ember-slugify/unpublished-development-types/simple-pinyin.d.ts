@@ -1,1 +1,1 @@
-declare module 'simple-pinyin';
+declare module 'simple-pinyin'

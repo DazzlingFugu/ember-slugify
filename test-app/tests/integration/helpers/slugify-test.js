@@ -33,9 +33,7 @@ module('Integration | Helper | slugify', function (hooks) {
     await render(hbs`{{slugify "vive l'♥" (hash locale="fr_CA")}}`)
     assert.dom().hasText('vive-lamour')
     // the strict option is ignored on purpose
-    await render(
-      hbs`{{slugify "Bon jOuR Töi 1337  : () ?  " (hash strict=false)}}`
-    )
+    await render(hbs`{{slugify "Bon jOuR Töi 1337  : () ?  " (hash strict=false)}}`)
     assert.dom().hasText('bon-jour-toi-1337')
     await render(hbs`{{slugify " keep the spaces " (hash trim=false)}}`)
     assert.dom().hasText('-keep-the-spaces-')

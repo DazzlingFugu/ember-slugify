@@ -10,7 +10,7 @@ import {
 // needed per test type.
 
 function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
-  upstreamSetupApplicationTest(hooks, options);
+  upstreamSetupApplicationTest(hooks, options)
 
   // Additional setup for application tests can be done here.
   //
@@ -29,15 +29,15 @@ function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
 }
 
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
-  upstreamSetupRenderingTest(hooks, options);
+  upstreamSetupRenderingTest(hooks, options)
 
   // Additional setup for rendering tests can be done here.
 }
 
 function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
-  upstreamSetupTest(hooks, options);
+  upstreamSetupTest(hooks, options)
 
   // Additional setup for unit tests can be done here.
 }
 
-export { setupApplicationTest, setupRenderingTest, setupTest };
+export { setupApplicationTest, setupRenderingTest, setupTest }
