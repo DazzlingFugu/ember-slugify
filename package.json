@@ -1,15 +1,34 @@
 {
   "private": true,
-  "workspaces": ["ember-slugify", "test-app"],
-  "resolutions": {
-    "clean-css": "4.2.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DazzlingFugu/ember-slugify.git"
+  },
+  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
+  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Dazzling Fugu",
+    "url": "https://github.com/DazzlingFugu"
   },
   "scripts": {
     "build": "yarn workspace ember-slugify run build",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
+    "prepare": "yarn build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "yarn workspace ember-slugify run start",
     "start:test-app": "yarn workspace test-app run start",
-    "test:ember": "yarn workspace test-app test:ember"
-  }
+    "test": "yarn workspaces run test",
+    "test:ember": "yarn workspace test-app run test:ember"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^1.1.0"
+  },
+  "workspaces": [
+    "ember-slugify",
+    "test-app"
+  ]
 }

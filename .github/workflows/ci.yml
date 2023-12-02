@@ -9,20 +9,22 @@ on:
       - master
   pull_request: {}
 
-jobs:
-  lint-tests:
-    name: Lint and tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+jobs:
+  test:
+    name: 'Tests'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
+          node-version: 18
           cache: yarn
-          node-version: 16
 
       # https://github.com/lirantal/lockfile-lint
       - name: Lint lockfile
@@ -31,111 +33,57 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Lint Addon
+      - name: Lint
         run: yarn lint
-        working-directory: ember-slugify
-
-      - name: Lint Test App
-        run: yarn lint
-        working-directory: test-app
-
-      - name: Build Addon
-        run: yarn build
 
       - name: Run Tests
-        run: yarn test:ember
+        run: yarn test
 
   floating:
-    name: Floating Dependencies
-    needs: lint-tests
+    name: 'Floating Dependencies'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
+          node-version: 18
           cache: yarn
-          node-version: 16
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build Addon
-        run: yarn build
-
       - name: Run Tests
-        run: yarn test:ember
-        working-directory: test-app
+        run: yarn test
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
-    needs: lint-tests
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    needs: 'test'
+
     strategy:
       fail-fast: false
       matrix:
         try-scenario:
-          - ember-lts-3.28
-          - ember-lts-4.4
+          - ember-lts-4.8
+          - ember-lts-4.12
           - ember-release
-          # - ember-beta
-          # - ember-canary
-          - ember-classic
+          - ember-beta
+          - ember-canary
           - embroider-safe
           - embroider-optimized
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
+          node-version: 18
           cache: yarn
-          node-version: 16
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build Addon
-        run: yarn build
-
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
-
-concurrency:
-  group: ci-${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
-# To reuse when the shared workflow will be migrated to V2 Addons structure
-# name: CI
-#
-# on:
-#   push:
-#     branches:
-#       - master
-#   pull_request: {}
-#
-# concurrency:
-#   group: ci-${{ github.head_ref || github.ref }}
-#   cancel-in-progress: true
-#
-# jobs:
-#   org:
-#     uses: DazzlingFugu/.github/.github/workflows/js--emberjs-addons.yml@master
-#     with:
-#       node-version: 16
-#       package-manager: yarn
-#       ember-try-scenarios: "[
-#         'ember-lts-3.28',
-#         'ember-lts-4.4',
-#         'ember-release',
-#         'ember-beta',
-#         'ember-canary',
-#         'ember-classic',
-#         'embroider-safe',
-#         'embroider-optimized',
-#         ]"

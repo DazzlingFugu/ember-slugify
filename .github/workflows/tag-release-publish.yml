@@ -59,8 +59,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
-          node-version: 16
+          cache: yarn
+          node-version: 18
           registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies

@@ -8,18 +8,18 @@ module.exports = async function () {
     useYarn: true,
     scenarios: [
       {
-        name: 'ember-lts-3.28',
+        name: 'ember-lts-4.8',
         npm: {
           devDependencies: {
-            'ember-source': '~3.28.0',
+            'ember-source': '~4.8.0',
           },
         },
       },
       {
-        name: 'ember-lts-4.4',
+        name: 'ember-lts-4.12',
         npm: {
           devDependencies: {
-            'ember-source': '~4.4.0',
+            'ember-source': '~4.12.0',
           },
         },
       },
@@ -28,7 +28,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
-            '@ember/string': '^3.1.1',
           },
         },
       },
@@ -37,48 +36,18 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('beta'),
-            '@ember/string': '^3.1.1',
           },
         },
       },
       {
         name: 'ember-canary',
-        // Can be mandatory again when ember-qunit will be compatible Ember 5
-        // https://github.com/emberjs/ember-qunit/issues/1026
-        allowedToFail: true,
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
-            '@ember/string': '^3.1.1',
           },
         },
       },
-      {
-        name: 'ember-classic',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'application-template-wrapper': true,
-            'default-async-observers': false,
-            'template-only-glimmer-components': false,
-          }),
-        },
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.28.0',
-          },
-          ember: {
-            edition: 'classic',
-          },
-        },
-      },
-      {
-        ...embroiderSafe(),
-        npm: {
-          devDependencies: {
-            '@ember/string': '^3.1.1',
-          },
-        },
-      },
+      embroiderSafe(),
       embroiderOptimized(),
     ],
   }
