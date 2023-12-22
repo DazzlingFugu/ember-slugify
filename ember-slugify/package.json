@@ -118,7 +118,7 @@
     "eslint-plugin-qunit": "^7.3.1",
     "prettier": "^3.0.3",
     "prettier-plugin-ember-template-tag": "^1.1.0",
-    "rollup": "^3.21.8",
+    "rollup": "^4.9.1",
     "rollup-plugin-copy": "^3.4.0",
     "typescript": "^5.3.3"
   },
