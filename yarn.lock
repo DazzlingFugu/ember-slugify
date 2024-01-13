@@ -1332,24 +1332,10 @@
     typescript-memoize "^1.0.1"
     walk-sync "^3.0.0"
 
-"@embroider/macros@1.13.4":
+"@embroider/macros@1.13.4", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.8.3":
   version "1.13.4"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.13.4.tgz#4fefb79d68bcfbc4619551572b2ca3040a224fb5"
   integrity sha512-A6tXvfwnscx66QO0R3c2dIJwEltfsTL4ihsYjMtgP9ODCCmQlCaRlZDQYw5Drta0ER9Fj3nXntu4naV5Wt5XLA==
-  dependencies:
-    "@embroider/shared-internals" "2.5.1"
-    assert-never "^1.2.1"
-    babel-import-util "^2.0.0"
-    ember-cli-babel "^7.26.6"
-    find-up "^5.0.0"
-    lodash "^4.17.21"
-    resolve "^1.20.0"
-    semver "^7.3.2"
-
-"@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.8.3":
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.13.3.tgz#e1ff584e01bcdebb9fa9f6982ecc2ea89886867f"
-  integrity sha512-JUC1aHRLIN2LNy1l+gz7gWkw9JmnsE20GL3LduCzNvCAnEQpMTJhW5BUbEWqdCnAWBPte/M2ofckqBXyTZioTQ==
   dependencies:
     "@embroider/shared-internals" "2.5.1"
     assert-never "^1.2.1"
@@ -4613,10 +4599,10 @@ electron-to-chromium@^1.4.535:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.598.tgz#aaf1f64286001915b59210158d21b6284e96acbc"
   integrity sha512-0JnipX0scPUlwsptQVCZggoCpREv+IrVD3h0ZG+sldmK9L27tSV3QjV8+QdaA4qQTzDf3PluNS45YYJky1oASw==
 
-ember-auto-import@^2.6.0, ember-auto-import@^2.6.3:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.7.0.tgz#de5792b6dcaa68fb0e097a2a8a23515d8cafe07b"
-  integrity sha512-cBEBB6IRRmlCVfyaRmDCfLrywm2HibTosJzIKv4BWF1p2ZokUhXBJjMRwuaG3tbLMV8rmJdLWnSKm8CodsdmQA==
+ember-auto-import@^2.6.0, ember-auto-import@^2.6.3, ember-auto-import@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.7.2.tgz#5e74b6a8839fab25e23af6cff6f74b1b424d8f25"
+  integrity sha512-pkWIljmJClYL17YBk8FjO7NrZPQoY9v0b+FooJvaHf/xlDQIBYVP7OaDHbNuNbpj7+wAwSDAnnwxjCoLsmm4cw==
   dependencies:
     "@babel/core" "^7.16.7"
     "@babel/plugin-proposal-class-properties" "^7.16.7"
