@@ -1697,10 +1697,12 @@
   resolved "https://registry.yarnpkg.com/@glint/environment-ember-loose/-/environment-ember-loose-1.2.1.tgz#6edcf1833395597c667e427172f20e74d72cdfe3"
   integrity sha512-ZA0Ht7vwd1FosVLtMFrB2Er62P1v6yX/UuS6z9UVR6DMPfrL5qx6vef+EGJPLBrBKZMlm7zMB6Fyca201y4hDA==
 
-"@glint/environment-ember-template-imports@^1.2.0":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@glint/environment-ember-template-imports/-/environment-ember-template-imports-1.2.1.tgz#8ffe32d336aa516a8a45fa32426a8ae44297445f"
-  integrity sha512-yTuF8oQyvVKmU3fCuYtg8Gf02VghQYI36x5/eob6yaMx2M+p3MFO+E6X7ANz/1bYRXphEPTWQMgdDjM4C6Ql4A==
+"@glint/environment-ember-template-imports@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@glint/environment-ember-template-imports/-/environment-ember-template-imports-1.3.0.tgz#2d56e31a3d3c4bc1822bad14c48ebdf754c19336"
+  integrity sha512-ynSc3AeFE4ZocvjI4rTS55L5sSrMexMvRtOYbVuY/u9t0PGXDjFuH/OiRiSCbHIL/jYH5Ie5uASZxs7TTCT8dw==
+  dependencies:
+    ember-template-imports "^3.0.0"
 
 "@glint/template@^1.2.0", "@glint/template@^1.2.1":
   version "1.2.1"
@@ -5384,7 +5386,7 @@ ember-source@~5.4.0:
     semver "^7.5.2"
     silent-error "^1.1.1"
 
-ember-template-imports@^3.4.2:
+ember-template-imports@^3.0.0, ember-template-imports@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.4.2.tgz#6cf7de7d4b8348a0fddf3aaec4947aa1211289e6"
   integrity sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==
