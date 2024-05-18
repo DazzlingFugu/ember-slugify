@@ -105,7 +105,7 @@
     "@types/ember__template": "^4.0.7",
     "@types/ember__test": "^4.0.2",
     "@types/ember__utils": "^4.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.8.0",
     "babel-plugin-ember-template-compilation": "^2.2.0",
     "concurrently": "^8.0.1",
