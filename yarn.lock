@@ -2085,15 +2085,10 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@tsconfig/ember@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@tsconfig/ember/-/ember-2.0.0.tgz#dba953e5527ccf7a2587f262a7afe0fa83c4e979"
-  integrity sha512-RzbDYYcjxVdG8Ki0xe99HN3+nHTZe6EBgw6N7B3yup7QogVFQQxA9nY7X80j1XzF15xqetwWiYfAjv5lkkp0/A==
-
-"@tsconfig/ember@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@tsconfig/ember/-/ember-3.0.2.tgz#d1ee5a734c5fa1b039d35a93055edadf816aa16f"
-  integrity sha512-Whab2JuEA9r1RLke13tKWO7F95C7l3ivwVhxC37v98vOtFOmDA2BisY/6Fnhclmyydc5vOuVPwN3hi8UTboahw==
+"@tsconfig/ember@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@tsconfig/ember/-/ember-3.0.8.tgz#5ebda83389b4f8dad4edf94ad0c734bc8038f39a"
+  integrity sha512-OVnIsZIt/8q0VEtcdz3rRryNrm6gdJTxXlxefkGIrkZnME0wqslmwHlUEZ7mvh377df9FqBhNKrYNarhCW8zJA==
 
 "@types/acorn@^4.0.3":
   version "4.0.6"
