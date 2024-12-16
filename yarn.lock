@@ -1497,7 +1497,7 @@
     "@handlebars/parser" "~2.0.0"
     simple-html-tokenizer "^0.5.11"
 
-"@glimmer/syntax@^0.84.2", "@glimmer/syntax@^0.84.3":
+"@glimmer/syntax@^0.84.3":
   version "0.84.3"
   resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.84.3.tgz#4045a1708cef7fd810cff42fe6deeba40c7286d0"
   integrity sha512-ioVbTic6ZisLxqTgRBL2PCjYZTFIwobifCustrozRU2xGDiYvVIL0vt25h2c1ioDsX59UgVlDkIK4YTAQQSd2A==
@@ -1583,12 +1583,12 @@
     "@glimmer/interfaces" "^0.92.0"
     "@glimmer/util" "^0.92.0"
 
-"@glint/core@^1.2.0":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@glint/core/-/core-1.2.1.tgz#ab4ca9c78848da71c0dfddceab35b5314631bb61"
-  integrity sha512-25Zn65aLSN1M7s0D950sTNElZYRqa6HFA0xcT03iI/vQd1F6c3luMAXbFrsTSHlktZx2dqJ38c2dUnZJQBQgMw==
+"@glint/core@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@glint/core/-/core-1.5.0.tgz#e9611841c3953c6e998103dfd4c2d35f999c184c"
+  integrity sha512-oo6ZDwX2S0Qqjai/CJH72LHg1U6rvzH1IyiFlWofaFiu/nSg04CDWZuJNPC3r47jz1+SaSI+mVMUaKJznzxzzQ==
   dependencies:
-    "@glimmer/syntax" "^0.84.2"
+    "@glimmer/syntax" "^0.84.3"
     escape-string-regexp "^4.0.0"
     semver "^7.5.2"
     silent-error "^1.1.1"
