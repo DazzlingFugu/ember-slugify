@@ -6,7 +6,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request: {}
 
 concurrency:
@@ -17,44 +17,38 @@ jobs:
   test:
     name: 'Tests'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-
-      # https://github.com/lirantal/lockfile-lint
-      - name: Lint lockfile
-        run: npx lockfile-lint --path yarn.lock --allowed-hosts npm yarn --validate-https
-
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint
-
+        run: pnpm lint
       - name: Run Tests
-        run: yarn test
+        run: pnpm test
 
   floating:
     name: 'Floating Dependencies'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
+        run: pnpm install
       - name: Run Tests
-        run: yarn test
+        run: pnpm test
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -75,15 +69,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
+        run: pnpm install --frozen-lockfile
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app

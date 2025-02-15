@@ -1,34 +1,39 @@
 {
   "private": true,
+  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
+  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DazzlingFugu/ember-slugify.git"
   },
-  "homepage": "https://github.com/DazzlingFugu/ember-slugify",
-  "bugs": "https://github.com/DazzlingFugu/ember-slugify/issues",
   "license": "MIT",
   "author": {
     "name": "Dazzling Fugu",
     "url": "https://github.com/DazzlingFugu"
   },
   "scripts": {
-    "build": "yarn workspace ember-slugify run build",
-    "lint": "yarn workspaces run lint",
-    "lint:fix": "yarn workspaces run lint:fix",
-    "prepare": "yarn build",
+    "build": "pnpm --filter 'ember-slugify' run build",
+    "lint": "pnpm --filter '*' run lint",
+    "lint:fix": "pnpm --filter '*' run lint:fix",
+    "prepare": "pnpm build",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "yarn workspace ember-slugify run start",
-    "start:test-app": "yarn workspace test-app run start",
-    "test": "yarn workspaces run test",
-    "test:ember": "yarn workspace test-app run test:ember"
+    "start:addon": "pnpm --filter 'ember-slugify' run start",
+    "start:test-app": "pnpm --filter 'test-app' run start",
+    "test": "pnpm --filter 'test-app' run test",
+    "test:ember": "pnpm --filter 'test-app' run test:ember"
+  },
+  "dependencies": {
+    "ember-slugify": "workspace:*"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
     "prettier": "^3.4.2",
-    "prettier-plugin-ember-template-tag": "^2.0.2"
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "release-plan": "^0.13.1",
+    "test-app": "workspace:*"
   },
-  "workspaces": [
-    "ember-slugify",
-    "test-app"
-  ]
+  "volta": {
+    "node": "18.20.6",
+    "pnpm": "9.15.5"
+  }
 }
