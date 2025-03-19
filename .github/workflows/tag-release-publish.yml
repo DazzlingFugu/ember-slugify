@@ -56,15 +56,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          cache: yarn
+          cache: pnpm
           node-version: 18
           registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         working-directory: ember-slugify
 
       - name: Publish to NPM
